@@ -5,15 +5,13 @@ import {
 } from "@solana/wallet-adapter-react";
 import { WalletModalProvider as ReactUIWalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import {
+  AlphaWalletAdapter,
+  CloverWalletAdapter,
   PhantomWalletAdapter,
   SolflareWalletAdapter,
-  SolletExtensionWalletAdapter,
-  SolletWalletAdapter,
   TorusWalletAdapter,
-  // LedgerWalletAdapter,
-  // SlopeWalletAdapter,
 } from "@solana/wallet-adapter-wallets";
-import { Cluster, clusterApiUrl } from "@solana/web3.js";
+import { clusterApiUrl } from "@solana/web3.js";
 import { FC, ReactNode, useCallback, useMemo } from "react";
 
 export const WalletContextProvider: FC<{ children: ReactNode }> = ({
@@ -26,8 +24,8 @@ export const WalletContextProvider: FC<{ children: ReactNode }> = ({
     () => [
       new PhantomWalletAdapter(),
       new SolflareWalletAdapter(),
-      new SolletWalletAdapter({ network }),
-      new SolletExtensionWalletAdapter({ network }),
+      new AlphaWalletAdapter({ network }),
+      new CloverWalletAdapter({ network }),
       new TorusWalletAdapter(),
       // new LedgerWalletAdapter(),
       // new SlopeWalletAdapter(),

@@ -2,6 +2,7 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useProgram } from "@thirdweb-dev/react/solana";
 import type { NextPage } from "next";
+import Image from "next/image";
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
 
@@ -50,8 +51,20 @@ const Home: NextPage = () => {
     <>
       <div className={styles.container}>
         <div className={styles.iconContainer}>
-          <img src={"/thirdweb.svg"} className={styles.icon} />
-          <img src={"/sol.png"} className={styles.icon} />
+          <Image
+            src="/thirdweb.svg"
+            alt="Thirdweb"
+            className={styles.icon}
+            width={80}
+            height={80}
+          />
+          <Image
+            src="/sol.png"
+            alt="Solana"
+            className={styles.icon}
+            width={80}
+            height={80}
+          />
         </div>
         <h1 className={styles.h1}>Solana, meet thirdweb 👋</h1>
         <p className={styles.explain}>
