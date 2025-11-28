@@ -66,39 +66,73 @@ const Home: NextPage = () => {
               Solana SDK
             </a>
           </b>
-          .
+          . Create and mint NFTs on the Solana blockchain with ease.
         </p>
 
-        {isConnected && (
-          <div>
-            <div>
-              <input
-                type="text"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-                placeholder="Name"
-              />
-            </div>
-            <div>
-              <textarea
-                onChange={(e) => setDescription(e.target.value)}
-                value={description}
-                placeholder="Description"
-              />
-            </div>
-            <div>
-              <input
-                type="file"
-                onChange={(e) => setFile(e.target.files![0])}
-              />
-            </div>
-            <div>
-              <button onClick={mintNft}>Mint NFT</button>
-            </div>
+        {!isConnected && (
+          <div className={styles.connectPrompt}>
+            <p>🔗 Connect your Solana wallet to start minting NFTs</p>
           </div>
         )}
 
-        <WalletMultiButton />
+        {isConnected && (
+          <>
+            <div className={styles.statusConnected}>
+              <span className={styles.statusDot}></span>
+              Wallet Connected Successfully!
+            </div>
+            <div className={styles.formContainer}>
+              <h2
+                style={{ marginTop: 0, marginBottom: "24px", color: "#e2e8f0" }}
+              >
+                Mint Your NFT
+              </h2>
+
+              <div className={styles.inputGroup}>
+                <label className={styles.label}>NFT Name</label>
+                <input
+                  type="text"
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                  placeholder="Enter NFT name..."
+                  className={styles.input}
+                />
+              </div>
+
+              <div className={styles.inputGroup}>
+                <label className={styles.label}>Description</label>
+                <textarea
+                  onChange={(e) => setDescription(e.target.value)}
+                  value={description}
+                  placeholder="Describe your NFT..."
+                  className={`${styles.input} ${styles.textarea}`}
+                />
+              </div>
+
+              <div className={styles.inputGroup}>
+                <label className={styles.label}>Upload Image</label>
+                <input
+                  type="file"
+                  onChange={(e) => setFile(e.target.files![0])}
+                  className={`${styles.input} ${styles.fileInput}`}
+                  accept="image/*"
+                />
+              </div>
+
+              <button
+                onClick={mintNft}
+                className={styles.mintButton}
+                disabled={!name || !description || !file || isLoading}
+              >
+                {isLoading ? "⏳ Minting..." : "✨ Mint NFT"}
+              </button>
+            </div>
+          </>
+        )}
+
+        <div className={styles.walletSection}>
+          <WalletMultiButton />
+        </div>
       </div>
     </>
   );

@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  padding-bottom: 250px;
+  padding-bottom: 50px;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -24,21 +24,52 @@ select {
 }
 
 :root {
-  --background-color: #1c1e21;
+  --background-color: #0f0f23;
   --white: #ffffff;
   --tw-color1: #a855f7;
   --tw-color1-hover: #9333ea;
 }
 
 body {
-  background: var(--background-color);
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 100%);
   font-family: "Inter", sans-serif;
   color: var(--white);
   display: flex;
   margin: 0;
   text-align: center;
+  overflow-x: hidden;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.7);
+}
+
+/* Wallet button styling */
+.wallet-adapter-button {
+  background: linear-gradient(135deg, #a855f7, #e011a7) !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  padding: 12px 24px !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+  font-size: 1rem !important;
 }

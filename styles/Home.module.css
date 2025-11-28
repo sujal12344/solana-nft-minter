@@ -1,11 +1,12 @@
 .container {
-  margin-top: 96px;
+  margin-top: 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100vw;
   padding: 0 24px;
+  min-height: 100vh;
 }
 
 .iconContainer {
@@ -13,22 +14,178 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 16px;
-  padding: 16px;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .icon {
-  max-height: 72px;
+  max-height: 80px;
+  transition: transform 0.3s ease;
+}
+
+.icon:hover {
+  transform: scale(1.05);
 }
 
 .h1 {
-  margin-bottom: 0px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #e011a7, #a855f7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .explain {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
+  margin-bottom: 40px;
+  max-width: 600px;
+  line-height: 1.6;
+  color: #cbd5e1;
 }
 
 .lightPurple {
   color: #e011a7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.lightPurple:hover {
+  color: #f472b6;
+}
+
+.formContainer {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 32px;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.fileInput {
+  padding: 16px;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.fileInput:hover {
+  border-color: #a855f7;
+  background: rgba(168, 85, 247, 0.05);
+}
+
+.mintButton {
+  width: 100%;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #a855f7, #e011a7);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+}
+
+.mintButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+}
+
+.mintButton:active {
+  transform: translateY(0);
+}
+
+.walletSection {
+  margin-top: 32px;
+}
+
+.connectPrompt {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  margin: 20px 0;
+  color: #cbd5e1;
+  font-size: 1.1rem;
+}
+
+.statusConnected {
+  color: #10b981;
+  font-weight: 600;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
 }
